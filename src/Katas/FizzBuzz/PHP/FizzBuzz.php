@@ -4,8 +4,8 @@ namespace Katas\FizzBuzz\PHP;
 
 class FizzBuzz
 {
-    public function get()
+    public function get(int $number): string
     {
-        throw new FizzBuzzException('Parameter missing');
+        return $number;
     }
 }
