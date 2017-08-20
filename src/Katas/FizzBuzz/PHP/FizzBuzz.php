@@ -6,6 +6,6 @@ class FizzBuzz
 {
     public function get()
     {
-        
+        throw new FizzBuzzException('Parameter missing');
     }
 }

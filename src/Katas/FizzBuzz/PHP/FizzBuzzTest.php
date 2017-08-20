@@ -6,7 +6,11 @@ use PHPUnit\Framework\TestCase;
 
 class FizzBuzzTest extends TestCase
 {
-    public function testGetMethodExists()
+    /**
+     * @expectedException Katas\FizzBuzz\PHP\FizzBuzzException
+     * @expectedExceptionMessage Parameter missing
+     */
+    public function testItThrowsAnExceptionIfWeDoNotPassAnyParametersToTheGetMethod()
     {
         $fizzBuzz = new FizzBuzz();
 
