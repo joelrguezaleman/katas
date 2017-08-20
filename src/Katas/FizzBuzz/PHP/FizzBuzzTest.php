@@ -30,10 +30,23 @@ class FizzBuzzTest extends TestCase
         $this->fizzBuzz->get();
     }
 
-    public function testItReturnsTheNumberItself()
-    {
-        $result = $this->fizzBuzz->get(1);
+    /**
+     * @dataProvider numberProvider
+     */
+    public function testItReturnsTheCorrectResultDependingOnTheNumber(
+        int $number,
+        string $expectedResult
+    ) {
+        $result = $this->fizzBuzz->get($number);
 
-        self::assertEquals('1', $result);
+        self::assertEquals($expectedResult, $result);
+    }
+
+    public function numberProvider()
+    {
+        return [
+            [1, '1'],
+            [3, 'Fizz'],
+        ];
     }
 }

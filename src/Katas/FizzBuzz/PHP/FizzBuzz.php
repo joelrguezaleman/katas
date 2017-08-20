@@ -6,6 +6,11 @@ class FizzBuzz
 {
     public function get(int $number): string
     {
-        return $number;
+        return $this->isFizz($number) ? 'Fizz' : $number;
+    }
+
+    private function isFizz(int $number): bool
+    {
+        return $number % 3 == 0;
     }
 }
