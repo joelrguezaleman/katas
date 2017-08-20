@@ -6,8 +6,10 @@ use PHPUnit\Framework\TestCase;
 
 class FizzBuzzTest extends TestCase
 {
-    public function testFizzBuzzClassIsInstantiable()
+    public function testGetMethodExists()
     {
         $fizzBuzz = new FizzBuzz();
+
+        $fizzBuzz->get();
     }
 }
