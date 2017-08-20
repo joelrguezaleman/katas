@@ -4,31 +4,19 @@ namespace Katas\FizzBuzz\PHP;
 
 class FizzBuzz
 {
+    const FIZZ = 3;
+    const BUZZ = 5;
+
     public function get(int $number): string
     {
-        if ($this->isFizzBuzz($number)) {
-            return 'FizzBuzz';
-        }
+        $result = $this->is(self::FIZZ, $number) ? 'Fizz' : '';
+        $result .= $this->is(self::BUZZ, $number) ? 'Buzz' : '';
 
-        if ($this->isBuzz($number)) {
-            return 'Buzz';
-        }
-
-        return $this->isFizz($number) ? 'Fizz' : $number;
+        return empty($result) ? $number : $result;
     }
 
-    private function isFizzBuzz(int $number): bool
+    private function is(int $fizzOrBuzz, int $number): bool
     {
-        return $this->isFizz($number) && $this->isBuzz($number);
-    }
-
-    private function isFizz(int $number): bool
-    {
-        return $number % 3 == 0;
-    }
-
-    private function isBuzz(int $number): bool
-    {
-        return $number % 5 == 0;
+        return $number % $fizzOrBuzz == 0;
     }
 }
