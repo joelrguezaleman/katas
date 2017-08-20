@@ -48,6 +48,7 @@ class FizzBuzzTest extends TestCase
             [1, '1'],
             [3, 'Fizz'],
             [5, 'Buzz'],
+            [15, 'FizzBuzz'],
         ];
     }
 }
