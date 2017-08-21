@@ -17,6 +17,17 @@ class FizzBuzz
 
     private function is(int $fizzOrBuzz, int $number): bool
     {
+        return $this->isDivisibleBy($number, $fizzOrBuzz) ||
+               $this->containsFizzOrBuzzDigit($number, $fizzOrBuzz);
+    }
+
+    private function isDivisibleBy(int $number, int $fizzOrBuzz): bool
+    {
         return $number % $fizzOrBuzz == 0;
+    }
+
+    private function containsFizzOrBuzzDigit(int $number, int $fizzOrBuzz): bool
+    {
+        return strpos(strval($number), strval($fizzOrBuzz)) !== false;
     }
 }
