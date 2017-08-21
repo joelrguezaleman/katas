@@ -75,6 +75,7 @@ class FizzBuzzTest extends TestCase
             [28, '28'],
             [29, '29'],
             [30, 'FizzBuzz'],
+            [52, 'Buzz'],
         ];
     }
 }
