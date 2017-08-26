@@ -2,6 +2,7 @@
 
 namespace Katas\GildedRose\PHP;
 
+use Exception;
 use PHPUnit\Framework\TestCase;
 
 class GildedRoseTest extends TestCase
@@ -41,7 +42,7 @@ class GildedRoseTest extends TestCase
     public function itemsProvider(): array
     {
         return [
-        
+
             // At the end of each day our system lowers both values for every item
             [
                 ['sku' => new Item('+5 Dexterity Vest', 3, 3)],
@@ -126,6 +127,39 @@ class GildedRoseTest extends TestCase
             [
                 ['sku' => new Item('Backstage passes to a TAFKAL80ETC concert', 0, 10)],
                 'Backstage passes to a TAFKAL80ETC concert, -1, 0'
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider badItemsProvider
+     */
+    public function testItThrowsAnExceptionIfTheBusinessRulesAreViolated(
+        array $items,
+        string $exceptionMessage
+    ) {
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage($exceptionMessage);
+
+        $gildedRose = new GildedRose($items);
+
+        $gildedRose->updateQuality();
+    }
+
+    public function badItemsProvider(): array
+    {
+        return [
+            [
+                ['sku' => new Item('Sulfuras, Hand of Ragnaros', 10, -1)],
+                'An item quality can never be negative'
+            ],
+            [
+                ['sku' => new Item('+5 Dexterity Vest', 10, 51)],
+                'An item quality can not be higher than 50'
+            ],
+            [
+                ['sku' => new Item('Sulfuras, Hand of Ragnaros', 10, 79)],
+                'The quality of the item "Sulfuras" must be 80'
             ],
         ];
     }
