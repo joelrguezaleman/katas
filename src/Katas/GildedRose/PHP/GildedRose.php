@@ -61,4 +61,12 @@ class GildedRose
             }
         }
     }
+
+    /**
+     * @return Item|bool
+     */
+    public function getItem(string $key)
+    {
+        return $this->items[$key] ?? false;
+    }
 }
