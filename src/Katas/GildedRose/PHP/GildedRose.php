@@ -30,29 +30,8 @@ class GildedRose
     public function updateQuality()
     {
         foreach ($this->items as $item) {
-            if ($item->name == '+5 Dexterity Vest' || $item->name == 'Elixir of the Mongoose') {
-                $updater = new GenericQualityUpdater();
-                $updater->updateQuality($item);
-                continue;
-            }
-
-            if ($item->name == 'Aged Brie') {
-                $updater = new AgedBrieQualityUpdater();
-                $updater->updateQuality($item);
-                continue;
-            }
-
-            if ($item->name == 'Sulfuras, Hand of Ragnaros') {
-                $updater = new SulfurasQualityUpdater();
-                $updater->updateQuality($item);
-                continue;
-            }
-
-            if ($item->name == 'Backstage passes to a TAFKAL80ETC concert') {
-                $updater = new BackstagePassesQualityUpdater();
-                $updater->updateQuality($item);
-                continue;
-            }
+            $qualityUpdater = QualityUpdaterFactory::build($item->name);
+            $qualityUpdater->updateQuality($item);
         }
     }
 
