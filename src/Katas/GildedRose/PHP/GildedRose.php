@@ -42,6 +42,12 @@ class GildedRose
                 continue;
             }
 
+            if ($item->name == 'Sulfuras, Hand of Ragnaros') {
+                $updater = new SulfurasQualityUpdater();
+                $updater->updateQuality($item);
+                continue;
+            }
+
             if ($item->name != 'Aged Brie' and $item->name != 'Backstage passes to a TAFKAL80ETC concert') {
                 if ($item->quality > 0) {
                     if ($item->name != 'Sulfuras, Hand of Ragnaros') {
