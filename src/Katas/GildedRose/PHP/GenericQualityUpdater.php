@@ -9,8 +9,7 @@ class GenericQualityUpdater extends AbstractQualityUpdater
         $item->sellIn--;
 
         $increment = $this->increment();
-        $qualityDecrease = $item->sellIn < 0 ? $increment * 2 : $increment;
-        $item->quality -= $qualityDecrease;
+        $item->quality -= $item->sellIn < 0 ? $increment * 2 : $increment;
 
         if ($item->quality < 0) {
             $item->quality = 0;
