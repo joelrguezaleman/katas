@@ -14,7 +14,7 @@ class QualityUpdaterFactory
             case 'Backstage passes to a TAFKAL80ETC concert':
                 return new BackstagePassesQualityUpdater();
             case 'Conjured Mana Cake':
-                return new ConjuredManaCakeQualityUpdater(self::INCREMENT * 2);
+                return new GenericQualityUpdater(self::INCREMENT * 2);
             case 'Sulfuras, Hand of Ragnaros':
                 return new SulfurasQualityUpdater();
             default:

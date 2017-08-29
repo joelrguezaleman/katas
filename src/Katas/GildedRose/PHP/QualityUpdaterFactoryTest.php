@@ -35,7 +35,7 @@ class QualityUpdaterFactoryTest extends TestCase
             ],
             [
                 'Conjured Mana Cake',
-                ConjuredManaCakeQualityUpdater::class
+                GenericQualityUpdater::class
             ],
             [
                 'Elixir of the Mongoose',
