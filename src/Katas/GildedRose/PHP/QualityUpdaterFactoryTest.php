@@ -34,6 +34,10 @@ class QualityUpdaterFactoryTest extends TestCase
                 BackstagePassesQualityUpdater::class
             ],
             [
+                'Conjured Mana Cake',
+                ConjuredManaCakeQualityUpdater::class
+            ],
+            [
                 'Elixir of the Mongoose',
                 GenericQualityUpdater::class
             ],
