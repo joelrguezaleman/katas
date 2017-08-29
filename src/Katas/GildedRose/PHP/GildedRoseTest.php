@@ -128,6 +128,20 @@ class GildedRoseTest extends TestCase
                 ['sku' => new Item('Backstage passes to a TAFKAL80ETC concert', 0, 10)],
                 'Backstage passes to a TAFKAL80ETC concert, -1, 0'
             ],
+
+            //  "Conjured" items degrade in Quality twice as fast as normal items
+            [
+                ['sku' => new Item('Conjured Mana Cake', 3, 6)],
+                'Conjured Mana Cake, 2, 4'
+            ],
+            [
+                ['sku' => new Item('Conjured Mana Cake', 0, 6)],
+                'Conjured Mana Cake, -1, 2'
+            ],
+            [
+                ['sku' => new Item('Conjured Mana Cake', 0, 1)],
+                'Conjured Mana Cake, -1, 0'
+            ],
         ];
     }
 
