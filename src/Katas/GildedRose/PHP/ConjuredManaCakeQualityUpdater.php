@@ -2,13 +2,14 @@
 
 namespace Katas\GildedRose\PHP;
 
-class ConjuredManaCakeQualityUpdater implements QualityUpdaterInterface
+class ConjuredManaCakeQualityUpdater extends AbstractQualityUpdater
 {
     public function updateQuality(Item $item)
     {
         $item->sellIn--;
 
-        $qualityDecrease = $item->sellIn < 0 ? 4 : 2;
+        $increment = $this->increment();
+        $qualityDecrease = $item->sellIn < 0 ? $increment * 2 : $increment;
         $item->quality -= $qualityDecrease;
 
         if ($item->quality < 0) {

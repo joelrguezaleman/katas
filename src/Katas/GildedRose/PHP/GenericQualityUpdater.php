@@ -2,13 +2,14 @@
 
 namespace Katas\GildedRose\PHP;
 
-class GenericQualityUpdater implements QualityUpdaterInterface
+class GenericQualityUpdater extends AbstractQualityUpdater
 {
     public function updateQuality(Item $item)
     {
         $item->sellIn--;
 
-        $qualityDecrease = $item->sellIn < 0 ? 2 : 1;
+        $increment = $this->increment();
+        $qualityDecrease = $item->sellIn < 0 ? $increment * 2 : $increment;
         $item->quality -= $qualityDecrease;
 
         if ($item->quality < 0) {
