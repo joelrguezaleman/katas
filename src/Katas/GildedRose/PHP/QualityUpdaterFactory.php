@@ -2,6 +2,8 @@
 
 namespace Katas\GildedRose\PHP;
 
+use Katas\GildedRose\PHP\QualityUpdaters\QualityUpdaterInterface;
+
 class QualityUpdaterFactory
 {
     const INCREMENT = 1;
