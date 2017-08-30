@@ -3,6 +3,7 @@
 namespace Katas\GildedRose\PHP;
 
 use Katas\GildedRose\PHP\QualityUpdaters\QualityUpdaterInterface;
+use Katas\GildedRose\PHP\QualityUpdaters\GenericQualityUpdater;
 
 class QualityUpdaterFactory
 {

@@ -2,6 +2,7 @@
 
 namespace Katas\GildedRose\PHP;
 
+use Katas\GildedRose\PHP\QualityUpdaters\GenericQualityUpdater;
 use PHPUnit\Framework\TestCase;
 
 class QualityUpdaterFactoryTest extends TestCase

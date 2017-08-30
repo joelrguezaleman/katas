@@ -1,8 +1,8 @@
 <?php
 
-namespace Katas\GildedRose\PHP;
+namespace Katas\GildedRose\PHP\QualityUpdaters;
 
-use Katas\GildedRose\PHP\QualityUpdaters\AbstractQualityUpdater;
+use Katas\GildedRose\PHP\Item;
 
 class GenericQualityUpdater extends AbstractQualityUpdater
 {
