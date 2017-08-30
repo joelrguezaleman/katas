@@ -2,6 +2,8 @@
 
 namespace Katas\GildedRose\PHP;
 
+use Katas\GildedRose\PHP\QualityUpdaters\AbstractQualityUpdater;
+
 class GenericQualityUpdater extends AbstractQualityUpdater
 {
     public function updateQuality(Item $item)

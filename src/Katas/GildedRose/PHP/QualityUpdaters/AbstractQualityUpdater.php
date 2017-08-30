@@ -1,6 +1,8 @@
 <?php
 
-namespace Katas\GildedRose\PHP;
+namespace Katas\GildedRose\PHP\QualityUpdaters;
+
+use Katas\GildedRose\PHP\QualityUpdaterInterface;
 
 abstract class AbstractQualityUpdater implements QualityUpdaterInterface
 {
