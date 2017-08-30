@@ -2,8 +2,9 @@
 
 namespace Katas\GildedRose\PHP;
 
-use Katas\GildedRose\PHP\QualityUpdaters\QualityUpdaterInterface;
+use Katas\GildedRose\PHP\QualityUpdaters\AgedBrieQualityUpdater;
 use Katas\GildedRose\PHP\QualityUpdaters\GenericQualityUpdater;
+use Katas\GildedRose\PHP\QualityUpdaters\QualityUpdaterInterface;
 
 class QualityUpdaterFactory
 {
