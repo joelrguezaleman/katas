@@ -5,6 +5,7 @@ namespace Katas\GildedRose\PHP;
 use Katas\GildedRose\PHP\QualityUpdaters\AgedBrieQualityUpdater;
 use Katas\GildedRose\PHP\QualityUpdaters\BackstagePassesQualityUpdater;
 use Katas\GildedRose\PHP\QualityUpdaters\GenericQualityUpdater;
+use Katas\GildedRose\PHP\QualityUpdaters\SulfurasQualityUpdater;
 use PHPUnit\Framework\TestCase;
 
 class QualityUpdaterFactoryTest extends TestCase

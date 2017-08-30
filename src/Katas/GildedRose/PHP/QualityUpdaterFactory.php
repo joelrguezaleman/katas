@@ -6,6 +6,7 @@ use Katas\GildedRose\PHP\QualityUpdaters\AgedBrieQualityUpdater;
 use Katas\GildedRose\PHP\QualityUpdaters\BackstagePassesQualityUpdater;
 use Katas\GildedRose\PHP\QualityUpdaters\GenericQualityUpdater;
 use Katas\GildedRose\PHP\QualityUpdaters\QualityUpdaterInterface;
+use Katas\GildedRose\PHP\QualityUpdaters\SulfurasQualityUpdater;
 
 class QualityUpdaterFactory
 {
