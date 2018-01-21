@@ -31,7 +31,7 @@ final class Finder
                     $r->person2 = $this->people[$i];
                 }
 
-                $r->d = $r->person2->birthDate->getTimestamp()
+                $r->ageDifference = $r->person2->birthDate->getTimestamp()
                     - $r->person1->birthDate->getTimestamp();
 
                 $tr[] = $r;
@@ -47,13 +47,13 @@ final class Finder
         foreach ($tr as $result) {
             switch ($ft) {
                 case FT::ONE:
-                    if ($result->d < $answer->d) {
+                    if ($result->ageDifference < $answer->ageDifference) {
                         $answer = $result;
                     }
                     break;
 
                 case FT::TWO:
-                    if ($result->d > $answer->d) {
+                    if ($result->ageDifference > $answer->ageDifference) {
                         $answer = $result;
                     }
                     break;
