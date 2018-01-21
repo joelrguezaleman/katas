@@ -6,7 +6,7 @@ namespace Katas\IncomprehensibleFinder;
 
 final class Finder
 {
-    /** @var Thing[] */
+    /** @var Person[] */
     private $_p;
 
     public function __construct(array $p)

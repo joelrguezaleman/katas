@@ -6,7 +6,7 @@ namespace Katas\IncomprehensibleFinder;
 
 use DateTime;
 
-final class Thing
+final class Person
 {
     /** @var string */
     public $name;

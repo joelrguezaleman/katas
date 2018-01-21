@@ -6,10 +6,10 @@ namespace Katas\IncomprehensibleFinder;
 
 final class F
 {
-    /** @var Thing */
+    /** @var Person */
     public $p1;
 
-    /** @var Thing */
+    /** @var Person */
     public $p2;
 
     /** @var int */
