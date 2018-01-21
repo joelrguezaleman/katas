@@ -24,15 +24,16 @@ final class Finder
                 $ageDifferenceBetweenTwoPeople = new AgeDifferenceBetweenTwoPeople();
 
                 if ($this->people[$i]->birthDate < $this->people[$j]->birthDate) {
-                    $ageDifferenceBetweenTwoPeople->person1 = $this->people[$i];
-                    $ageDifferenceBetweenTwoPeople->person2 = $this->people[$j];
+                    $ageDifferenceBetweenTwoPeople->oldest = $this->people[$i];
+                    $ageDifferenceBetweenTwoPeople->youngest = $this->people[$j];
                 } else {
-                    $ageDifferenceBetweenTwoPeople->person1 = $this->people[$j];
-                    $ageDifferenceBetweenTwoPeople->person2 = $this->people[$i];
+                    $ageDifferenceBetweenTwoPeople->oldest = $this->people[$j];
+                    $ageDifferenceBetweenTwoPeople->youngest = $this->people[$i];
                 }
 
-                $ageDifferenceBetweenTwoPeople->ageDifference = $ageDifferenceBetweenTwoPeople->person2->birthDate->getTimestamp()
-                    - $ageDifferenceBetweenTwoPeople->person1->birthDate->getTimestamp();
+                $ageDifferenceBetweenTwoPeople->ageDifference =
+                    $ageDifferenceBetweenTwoPeople->youngest->birthDate->getTimestamp()
+                    - $ageDifferenceBetweenTwoPeople->oldest->birthDate->getTimestamp();
 
                 $ageDifferences[] = $ageDifferenceBetweenTwoPeople;
             }

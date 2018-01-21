@@ -7,10 +7,10 @@ namespace Katas\IncomprehensibleFinder;
 final class AgeDifferenceBetweenTwoPeople
 {
     /** @var Person */
-    public $person1;
+    public $oldest;
 
     /** @var Person */
-    public $person2;
+    public $youngest;
 
     /** @var int */
     public $ageDifference;
