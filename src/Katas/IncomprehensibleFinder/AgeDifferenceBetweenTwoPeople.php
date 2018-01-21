@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Katas\IncomprehensibleFinder;
 
-final class F
+final class AgeDifferenceBetweenTwoPeople
 {
     /** @var Person */
     public $person1;

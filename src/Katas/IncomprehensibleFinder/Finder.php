@@ -14,14 +14,14 @@ final class Finder
         $this->people = $people;
     }
 
-    public function find(int $ft): F
+    public function find(int $ft): AgeDifferenceBetweenTwoPeople
     {
-        /** @var F[] $tr */
+        /** @var AgeDifferenceBetweenTwoPeople[] $tr */
         $tr = [];
 
         for ($i = 0; $i < count($this->people); $i++) {
             for ($j = $i + 1; $j < count($this->people); $j++) {
-                $r = new F();
+                $r = new AgeDifferenceBetweenTwoPeople();
 
                 if ($this->people[$i]->birthDate < $this->people[$j]->birthDate) {
                     $r->person1 = $this->people[$i];
@@ -39,7 +39,7 @@ final class Finder
         }
 
         if (count($tr) < 1) {
-            return new F();
+            return new AgeDifferenceBetweenTwoPeople();
         }
 
         $answer = $tr[0];
