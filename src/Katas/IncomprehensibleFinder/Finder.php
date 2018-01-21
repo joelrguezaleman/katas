@@ -24,15 +24,15 @@ final class Finder
                 $r = new F();
 
                 if ($this->_p[$i]->birthDate < $this->_p[$j]->birthDate) {
-                    $r->p1 = $this->_p[$i];
-                    $r->p2 = $this->_p[$j];
+                    $r->person1 = $this->_p[$i];
+                    $r->person2 = $this->_p[$j];
                 } else {
-                    $r->p1 = $this->_p[$j];
-                    $r->p2 = $this->_p[$i];
+                    $r->person1 = $this->_p[$j];
+                    $r->person2 = $this->_p[$i];
                 }
 
-                $r->d = $r->p2->birthDate->getTimestamp()
-                    - $r->p1->birthDate->getTimestamp();
+                $r->d = $r->person2->birthDate->getTimestamp()
+                    - $r->person1->birthDate->getTimestamp();
 
                 $tr[] = $r;
             }
