@@ -6,6 +6,6 @@ namespace Katas\IncomprehensibleFinder;
 
 interface FindCriteria
 {
-    const CLOSEST = 1;
-    const FURTHEST = 2;
+    public const CLOSEST = 1;
+    public const FURTHEST = 2;
 }
