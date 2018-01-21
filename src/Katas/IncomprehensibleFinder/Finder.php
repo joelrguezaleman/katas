@@ -44,17 +44,17 @@ final class Finder
 
         $answer = $ageDifferences[0];
 
-        foreach ($ageDifferences as $result) {
+        foreach ($ageDifferences as $ageDifference) {
             switch ($ft) {
                 case FT::ONE:
-                    if ($result->ageDifference < $answer->ageDifference) {
-                        $answer = $result;
+                    if ($ageDifference->ageDifference < $answer->ageDifference) {
+                        $answer = $ageDifference;
                     }
                     break;
 
                 case FT::TWO:
-                    if ($result->ageDifference > $answer->ageDifference) {
-                        $answer = $result;
+                    if ($ageDifference->ageDifference > $answer->ageDifference) {
+                        $answer = $ageDifference;
                     }
                     break;
             }
