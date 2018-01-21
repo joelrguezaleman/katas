@@ -14,7 +14,7 @@ final class Finder
         $this->people = $people;
     }
 
-    public function find(int $ft): AgeDifferenceBetweenTwoPeople
+    public function find(int $findCriteria): AgeDifferenceBetweenTwoPeople
     {
         /** @var AgeDifferenceBetweenTwoPeople[] $ageDifferences */
         $ageDifferences = [];
@@ -46,7 +46,7 @@ final class Finder
         $answer = $ageDifferences[0];
 
         foreach ($ageDifferences as $ageDifference) {
-            switch ($ft) {
+            switch ($findCriteria) {
                 case FindCriteria::CLOSEST:
                     if ($ageDifference->ageDifference < $answer->ageDifference) {
                         $answer = $ageDifference;
