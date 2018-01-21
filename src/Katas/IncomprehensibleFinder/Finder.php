@@ -7,11 +7,11 @@ namespace Katas\IncomprehensibleFinder;
 final class Finder
 {
     /** @var Person[] */
-    private $_p;
+    private $people;
 
-    public function __construct(array $p)
+    public function __construct(array $people)
     {
-        $this->_p = $p;
+        $this->people = $people;
     }
 
     public function find(int $ft): F
@@ -19,16 +19,16 @@ final class Finder
         /** @var F[] $tr */
         $tr = [];
 
-        for ($i = 0; $i < count($this->_p); $i++) {
-            for ($j = $i + 1; $j < count($this->_p); $j++) {
+        for ($i = 0; $i < count($this->people); $i++) {
+            for ($j = $i + 1; $j < count($this->people); $j++) {
                 $r = new F();
 
-                if ($this->_p[$i]->birthDate < $this->_p[$j]->birthDate) {
-                    $r->person1 = $this->_p[$i];
-                    $r->person2 = $this->_p[$j];
+                if ($this->people[$i]->birthDate < $this->people[$j]->birthDate) {
+                    $r->person1 = $this->people[$i];
+                    $r->person2 = $this->people[$j];
                 } else {
-                    $r->person1 = $this->_p[$j];
-                    $r->person2 = $this->_p[$i];
+                    $r->person1 = $this->people[$j];
+                    $r->person2 = $this->people[$i];
                 }
 
                 $r->d = $r->person2->birthDate->getTimestamp()
