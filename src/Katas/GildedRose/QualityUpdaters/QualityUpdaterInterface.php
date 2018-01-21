@@ -1,8 +1,8 @@
 <?php
 
-namespace Katas\GildedRose\PHP\QualityUpdaters;
+namespace Katas\GildedRose\QualityUpdaters;
 
-use Katas\GildedRose\PHP\Item;
+use Katas\GildedRose\Item;
 
 interface QualityUpdaterInterface
 {

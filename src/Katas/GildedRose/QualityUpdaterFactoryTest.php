@@ -1,11 +1,11 @@
 <?php
 
-namespace Katas\GildedRose\PHP;
+namespace Katas\GildedRose;
 
-use Katas\GildedRose\PHP\QualityUpdaters\AgedBrieQualityUpdater;
-use Katas\GildedRose\PHP\QualityUpdaters\BackstagePassesQualityUpdater;
-use Katas\GildedRose\PHP\QualityUpdaters\GenericQualityUpdater;
-use Katas\GildedRose\PHP\QualityUpdaters\SulfurasQualityUpdater;
+use Katas\GildedRose\QualityUpdaters\AgedBrieQualityUpdater;
+use Katas\GildedRose\QualityUpdaters\BackstagePassesQualityUpdater;
+use Katas\GildedRose\QualityUpdaters\GenericQualityUpdater;
+use Katas\GildedRose\QualityUpdaters\SulfurasQualityUpdater;
 use PHPUnit\Framework\TestCase;
 
 class QualityUpdaterFactoryTest extends TestCase

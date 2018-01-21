@@ -1,6 +1,6 @@
 <?php
 
-namespace Katas\FizzBuzz\PHP;
+namespace Katas\FizzBuzz;
 
 class FizzBuzz
 {

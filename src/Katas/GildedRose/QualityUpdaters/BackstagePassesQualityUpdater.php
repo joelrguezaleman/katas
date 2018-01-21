@@ -1,9 +1,9 @@
 <?php
 
-namespace Katas\GildedRose\PHP\QualityUpdaters;
+namespace Katas\GildedRose\QualityUpdaters;
 
-use Katas\GildedRose\PHP\Item;
-use Katas\GildedRose\PHP\QualityUpdaters\QualityUpdaterInterface;
+use Katas\GildedRose\Item;
+use Katas\GildedRose\QualityUpdaters\QualityUpdaterInterface;
 
 class BackstagePassesQualityUpdater implements QualityUpdaterInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Katas\GildedRose\PHP;
+namespace Katas\GildedRose;
 
 use Exception;
 use PHPUnit\Framework\TestCase;

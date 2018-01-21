@@ -1,6 +1,6 @@
 <?php
 
-namespace Katas\GildedRose\PHP;
+namespace Katas\GildedRose;
 
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 
