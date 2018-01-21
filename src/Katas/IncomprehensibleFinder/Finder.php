@@ -16,8 +16,8 @@ final class Finder
 
     public function find(int $ft): AgeDifferenceBetweenTwoPeople
     {
-        /** @var AgeDifferenceBetweenTwoPeople[] $tr */
-        $tr = [];
+        /** @var AgeDifferenceBetweenTwoPeople[] $ageDifferences */
+        $ageDifferences = [];
 
         for ($i = 0; $i < count($this->people); $i++) {
             for ($j = $i + 1; $j < count($this->people); $j++) {
@@ -34,17 +34,17 @@ final class Finder
                 $ageDifferenceBetweenTwoPeople->ageDifference = $ageDifferenceBetweenTwoPeople->person2->birthDate->getTimestamp()
                     - $ageDifferenceBetweenTwoPeople->person1->birthDate->getTimestamp();
 
-                $tr[] = $ageDifferenceBetweenTwoPeople;
+                $ageDifferences[] = $ageDifferenceBetweenTwoPeople;
             }
         }
 
-        if (count($tr) < 1) {
+        if (count($ageDifferences) < 1) {
             return new AgeDifferenceBetweenTwoPeople();
         }
 
-        $answer = $tr[0];
+        $answer = $ageDifferences[0];
 
-        foreach ($tr as $result) {
+        foreach ($ageDifferences as $result) {
             switch ($ft) {
                 case FT::ONE:
                     if ($result->ageDifference < $answer->ageDifference) {
