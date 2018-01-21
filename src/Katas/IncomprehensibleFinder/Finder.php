@@ -46,13 +46,13 @@ final class Finder
 
         foreach ($ageDifferences as $ageDifference) {
             switch ($ft) {
-                case FT::ONE:
+                case FindCriteria::CLOSEST:
                     if ($ageDifference->ageDifference < $answer->ageDifference) {
                         $answer = $ageDifference;
                     }
                     break;
 
-                case FT::TWO:
+                case FindCriteria::FURTHEST:
                     if ($ageDifference->ageDifference > $answer->ageDifference) {
                         $answer = $ageDifference;
                     }

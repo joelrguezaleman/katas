@@ -5,7 +5,7 @@ declare(strict_types = 1);
 namespace CodelyTV\FinderKataTest\Algorithm;
 
 use Katas\IncomprehensibleFinder\Finder;
-use Katas\IncomprehensibleFinder\FT;
+use Katas\IncomprehensibleFinder\FindCriteria;
 use Katas\IncomprehensibleFinder\Person;
 use PHPUnit\Framework\TestCase;
 
@@ -48,7 +48,7 @@ final class FinderTest extends TestCase
         $list   = [];
         $finder = new Finder($list);
 
-        $result = $finder->find(FT::ONE);
+        $result = $finder->find(FindCriteria::CLOSEST);
 
         $this->assertEquals(null, $result->person1);
         $this->assertEquals(null, $result->person2);
@@ -61,7 +61,7 @@ final class FinderTest extends TestCase
         $list[] = $this->sue;
         $finder = new Finder($list);
 
-        $result = $finder->find(FT::ONE);
+        $result = $finder->find(FindCriteria::CLOSEST);
 
         $this->assertEquals(null, $result->person1);
         $this->assertEquals(null, $result->person2);
@@ -75,7 +75,7 @@ final class FinderTest extends TestCase
         $list[] = $this->greg;
         $finder = new Finder($list);
 
-        $result = $finder->find(FT::ONE);
+        $result = $finder->find(FindCriteria::CLOSEST);
 
         $this->assertEquals($this->sue, $result->person1);
         $this->assertEquals($this->greg, $result->person2);
@@ -89,7 +89,7 @@ final class FinderTest extends TestCase
         $list[] = $this->greg;
         $finder = new Finder($list);
 
-        $result = $finder->find(FT::TWO);
+        $result = $finder->find(FindCriteria::FURTHEST);
 
         $this->assertEquals($this->greg, $result->person1);
         $this->assertEquals($this->mike, $result->person2);
@@ -105,7 +105,7 @@ final class FinderTest extends TestCase
         $list[] = $this->greg;
         $finder = new Finder($list);
 
-        $result = $finder->find(FT::TWO);
+        $result = $finder->find(FindCriteria::FURTHEST);
 
         $this->assertEquals($this->sue, $result->person1);
         $this->assertEquals($this->sarah, $result->person2);
@@ -123,7 +123,7 @@ final class FinderTest extends TestCase
         $list[] = $this->greg;
         $finder = new Finder($list);
 
-        $result = $finder->find(FT::ONE);
+        $result = $finder->find(FindCriteria::CLOSEST);
 
         $this->assertEquals($this->sue, $result->person1);
         $this->assertEquals($this->greg, $result->person2);
