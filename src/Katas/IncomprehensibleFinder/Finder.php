@@ -21,20 +21,20 @@ final class Finder
 
         for ($i = 0; $i < count($this->people); $i++) {
             for ($j = $i + 1; $j < count($this->people); $j++) {
-                $r = new AgeDifferenceBetweenTwoPeople();
+                $ageDifferenceBetweenTwoPeople = new AgeDifferenceBetweenTwoPeople();
 
                 if ($this->people[$i]->birthDate < $this->people[$j]->birthDate) {
-                    $r->person1 = $this->people[$i];
-                    $r->person2 = $this->people[$j];
+                    $ageDifferenceBetweenTwoPeople->person1 = $this->people[$i];
+                    $ageDifferenceBetweenTwoPeople->person2 = $this->people[$j];
                 } else {
-                    $r->person1 = $this->people[$j];
-                    $r->person2 = $this->people[$i];
+                    $ageDifferenceBetweenTwoPeople->person1 = $this->people[$j];
+                    $ageDifferenceBetweenTwoPeople->person2 = $this->people[$i];
                 }
 
-                $r->ageDifference = $r->person2->birthDate->getTimestamp()
-                    - $r->person1->birthDate->getTimestamp();
+                $ageDifferenceBetweenTwoPeople->ageDifference = $ageDifferenceBetweenTwoPeople->person2->birthDate->getTimestamp()
+                    - $ageDifferenceBetweenTwoPeople->person1->birthDate->getTimestamp();
 
-                $tr[] = $r;
+                $tr[] = $ageDifferenceBetweenTwoPeople;
             }
         }
 
