@@ -6,11 +6,15 @@ namespace Katas\IncomprehensibleFinder;
 
 final class Finder
 {
+    /** @var AgeDifferenceFinder **/
+    private $ageDifferenceFinder;
+
     /** @var Person[] */
     private $people;
 
-    public function __construct(array $people)
+    public function __construct(array $people, AgeDifferenceFinder $ageDifferenceFinder)
     {
+        $this->ageDifferenceFinder = $ageDifferenceFinder;
         $this->people = $people;
     }
 
@@ -24,9 +28,9 @@ final class Finder
         }
 
         if ($findCriteria === FindCriteria::CLOSEST) {
-            return $this->getClosestAgeDifference($ageDifferences);
+            return $this->ageDifferenceFinder->getClosestAgeDifference($ageDifferences);
         } else {
-            return $this->getFurthestAgeDifference($ageDifferences);
+            return $this->ageDifferenceFinder->getFurthestAgeDifference($ageDifferences);
         }
     }
 
@@ -44,33 +48,5 @@ final class Finder
         }
 
         return $ageDifferences;
-    }
-
-    private function getClosestAgeDifference(
-        array $ageDifferences
-    ): AgeDifferenceBetweenTwoPeople {
-        $answer = $ageDifferences[0];
-
-        foreach ($ageDifferences as $ageDifference) {
-            if ($ageDifference->ageDifference < $answer->ageDifference) {
-                $answer = $ageDifference;
-            }
-        }
-
-        return $answer;
-    }
-
-    private function getFurthestAgeDifference(
-        array $ageDifferences
-    ): AgeDifferenceBetweenTwoPeople {
-        $answer = $ageDifferences[0];
-
-        foreach ($ageDifferences as $ageDifference) {
-            if ($ageDifference->ageDifference > $answer->ageDifference) {
-                $answer = $ageDifference;
-            }
-        }
-
-        return $answer;
     }
 }
