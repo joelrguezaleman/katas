@@ -5,9 +5,9 @@ namespace Katas\IncomprehensibleFinder;
 class FurthestAgeDifferenceFinder extends AbstractAgeDifferenceFinder
 {
     protected function isBestAgeDifference(
-        int $ageDifference,
+        int $currentAgeDifference,
         int $bestAgeDifference
     ): bool {
-        return $ageDifference > $bestAgeDifference;
+        return $currentAgeDifference > $bestAgeDifference;
     }
 }

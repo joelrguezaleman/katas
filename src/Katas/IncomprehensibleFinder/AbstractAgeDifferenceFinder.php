@@ -9,12 +9,12 @@ abstract class AbstractAgeDifferenceFinder implements AgeDifferenceFinder
     ): AgeDifferenceBetweenTwoPeople {
         $bestAgeDifference = $ageDifferences[0];
 
-        foreach ($ageDifferences as $ageDifference) {
+        foreach ($ageDifferences as $currentAgeDifference) {
             if ($this->isBestAgeDifference(
-                $ageDifference->ageDifference,
+                $currentAgeDifference->ageDifference,
                 $bestAgeDifference->ageDifference
             )) {
-                $bestAgeDifference = $ageDifference;
+                $bestAgeDifference = $currentAgeDifference;
             }
         }
 
@@ -22,7 +22,7 @@ abstract class AbstractAgeDifferenceFinder implements AgeDifferenceFinder
     }
 
     abstract protected function isBestAgeDifference(
-        int $ageDifference,
+        int $currentAgeDifference,
         int $bestAgeDifference
     ): bool;
 }
