@@ -19,7 +19,7 @@ final class Finder
         /** @var AgeDifferenceBetweenTwoPeople[] $ageDifferences */
         $ageDifferences = $this->getAllAgeDifferencesBetweenAllPeople();
 
-        if (count($ageDifferences) < 1) {
+        if (empty($ageDifferences)) {
             return new AgeDifferenceBetweenTwoPeople();
         }
 
