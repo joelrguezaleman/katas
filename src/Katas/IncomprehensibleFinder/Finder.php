@@ -23,10 +23,11 @@ final class Finder
             return new AgeDifferenceBetweenTwoPeople();
         }
 
-        return $this->getAgeDifferenceByFindCriteria(
-            $ageDifferences,
-            $findCriteria
-        );
+        if ($findCriteria === FindCriteria::CLOSEST) {
+            return $this->getClosestAgeDifference($ageDifferences);
+        } else {
+            return $this->getFurthestAgeDifference($ageDifferences);
+        }
     }
 
     private function getAllAgeDifferencesBetweenAllPeople(): array
@@ -45,25 +46,28 @@ final class Finder
         return $ageDifferences;
     }
 
-    private function getAgeDifferenceByFindCriteria(
-        array $ageDifferences,
-        int $findCriteria
+    private function getClosestAgeDifference(
+        array $ageDifferences
     ): AgeDifferenceBetweenTwoPeople {
         $answer = $ageDifferences[0];
 
         foreach ($ageDifferences as $ageDifference) {
-            switch ($findCriteria) {
-                case FindCriteria::CLOSEST:
-                    if ($ageDifference->ageDifference < $answer->ageDifference) {
-                        $answer = $ageDifference;
-                    }
-                    break;
+            if ($ageDifference->ageDifference < $answer->ageDifference) {
+                $answer = $ageDifference;
+            }
+        }
 
-                case FindCriteria::FURTHEST:
-                    if ($ageDifference->ageDifference > $answer->ageDifference) {
-                        $answer = $ageDifference;
-                    }
-                    break;
+        return $answer;
+    }
+
+    private function getFurthestAgeDifference(
+        array $ageDifferences
+    ): AgeDifferenceBetweenTwoPeople {
+        $answer = $ageDifferences[0];
+
+        foreach ($ageDifferences as $ageDifference) {
+            if ($ageDifference->ageDifference > $answer->ageDifference) {
+                $answer = $ageDifference;
             }
         }
 
