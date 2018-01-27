@@ -7,14 +7,21 @@ namespace Katas\IncomprehensibleFinder;
 final class Finder
 {
     /** @var AgeDifferenceFinder **/
-    private $ageDifferenceFinder;
+    private $closestAgeDifferenceFinder;
+
+    /** @var AgeDifferenceFinder **/
+    private $furthestAgeDifferenceFinder;
 
     /** @var Person[] */
     private $people;
 
-    public function __construct(array $people, AgeDifferenceFinder $ageDifferenceFinder)
-    {
-        $this->ageDifferenceFinder = $ageDifferenceFinder;
+    public function __construct(
+        array $people,
+        AgeDifferenceFinder $closestAgeDifferenceFinder,
+        AgeDifferenceFinder $furthestAgeDifferenceFinder
+    ) {
+        $this->closestAgeDifferenceFinder = $closestAgeDifferenceFinder;
+        $this->furthestAgeDifferenceFinder = $furthestAgeDifferenceFinder;
         $this->people = $people;
     }
 
@@ -28,9 +35,9 @@ final class Finder
         }
 
         if ($findCriteria === FindCriteria::CLOSEST) {
-            return $this->ageDifferenceFinder->getClosestAgeDifference($ageDifferences);
+            return $this->closestAgeDifferenceFinder->getAgeDifference($ageDifferences);
         } else {
-            return $this->ageDifferenceFinder->getFurthestAgeDifference($ageDifferences);
+            return $this->furthestAgeDifferenceFinder->getAgeDifference($ageDifferences);
         }
     }
 

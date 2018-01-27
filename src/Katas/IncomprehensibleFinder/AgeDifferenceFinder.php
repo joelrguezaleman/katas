@@ -2,33 +2,9 @@
 
 namespace Katas\IncomprehensibleFinder;
 
-class AgeDifferenceFinder
+interface AgeDifferenceFinder
 {
-    public function getClosestAgeDifference(
+    public function getAgeDifference(
         array $ageDifferences
-    ): AgeDifferenceBetweenTwoPeople {
-        $answer = $ageDifferences[0];
-
-        foreach ($ageDifferences as $ageDifference) {
-            if ($ageDifference->ageDifference < $answer->ageDifference) {
-                $answer = $ageDifference;
-            }
-        }
-
-        return $answer;
-    }
-
-    public function getFurthestAgeDifference(
-        array $ageDifferences
-    ): AgeDifferenceBetweenTwoPeople {
-        $answer = $ageDifferences[0];
-
-        foreach ($ageDifferences as $ageDifference) {
-            if ($ageDifference->ageDifference > $answer->ageDifference) {
-                $answer = $ageDifference;
-            }
-        }
-
-        return $answer;
-    }
+    ): AgeDifferenceBetweenTwoPeople;
 }

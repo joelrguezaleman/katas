@@ -4,7 +4,8 @@ declare(strict_types = 1);
 
 namespace CodelyTV\FinderKataTest\Algorithm;
 
-use Katas\IncomprehensibleFinder\AgeDifferenceFinder;
+use Katas\IncomprehensibleFinder\ClosestAgeDifferenceFinder;
+use Katas\IncomprehensibleFinder\FurthestAgeDifferenceFinder;
 use Katas\IncomprehensibleFinder\Finder;
 use Katas\IncomprehensibleFinder\FindCriteria;
 use Katas\IncomprehensibleFinder\Person;
@@ -24,8 +25,11 @@ final class FinderTest extends TestCase
     /** @var Person */
     private $mike;
 
-    /** @var AgeDifferenceFinder **/
-    private $ageDifferenceFinder;
+    /** @var ClosestAgeDifferenceFinder **/
+    private $closestAgeDifferenceFinder;
+
+    /** @var FurthestAgeDifferenceFinder **/
+    private $furthestAgeDifferenceFinder;
 
     protected function setUp()
     {
@@ -45,14 +49,19 @@ final class FinderTest extends TestCase
         $this->mike->name      = "Mike";
         $this->mike->birthDate = new \DateTime("1979-01-01");
 
-        $this->ageDifferenceFinder = new AgeDifferenceFinder();
+        $this->closestAgeDifferenceFinder = new ClosestAgeDifferenceFinder();
+        $this->furthestAgeDifferenceFinder = new FurthestAgeDifferenceFinder();
     }
 
     /** @test */
     public function should_return_empty_when_given_empty_list()
     {
         $list   = [];
-        $finder = new Finder($list, $this->ageDifferenceFinder);
+        $finder = new Finder(
+            $list,
+            $this->closestAgeDifferenceFinder,
+            $this->furthestAgeDifferenceFinder
+        );
 
         $result = $finder->find(FindCriteria::CLOSEST);
 
@@ -65,7 +74,11 @@ final class FinderTest extends TestCase
     {
         $list   = [];
         $list[] = $this->sue;
-        $finder = new Finder($list, $this->ageDifferenceFinder);
+        $finder = new Finder(
+            $list,
+            $this->closestAgeDifferenceFinder,
+            $this->furthestAgeDifferenceFinder
+        );
 
         $result = $finder->find(FindCriteria::CLOSEST);
 
@@ -79,7 +92,11 @@ final class FinderTest extends TestCase
         $list   = [];
         $list[] = $this->sue;
         $list[] = $this->greg;
-        $finder = new Finder($list, $this->ageDifferenceFinder);
+        $finder = new Finder(
+            $list,
+            $this->closestAgeDifferenceFinder,
+            $this->furthestAgeDifferenceFinder
+        );
 
         $result = $finder->find(FindCriteria::CLOSEST);
 
@@ -93,7 +110,11 @@ final class FinderTest extends TestCase
         $list   = [];
         $list[] = $this->mike;
         $list[] = $this->greg;
-        $finder = new Finder($list, $this->ageDifferenceFinder);
+        $finder = new Finder(
+            $list,
+            $this->closestAgeDifferenceFinder,
+            $this->furthestAgeDifferenceFinder
+        );
 
         $result = $finder->find(FindCriteria::FURTHEST);
 
@@ -109,7 +130,11 @@ final class FinderTest extends TestCase
         $list[] = $this->sarah;
         $list[] = $this->mike;
         $list[] = $this->greg;
-        $finder = new Finder($list, $this->ageDifferenceFinder);
+        $finder = new Finder(
+            $list,
+            $this->closestAgeDifferenceFinder,
+            $this->furthestAgeDifferenceFinder
+        );
 
         $result = $finder->find(FindCriteria::FURTHEST);
 
@@ -127,7 +152,11 @@ final class FinderTest extends TestCase
         $list[] = $this->sarah;
         $list[] = $this->mike;
         $list[] = $this->greg;
-        $finder = new Finder($list, $this->ageDifferenceFinder);
+        $finder = new Finder(
+            $list,
+            $this->closestAgeDifferenceFinder,
+            $this->furthestAgeDifferenceFinder
+        );
 
         $result = $finder->find(FindCriteria::CLOSEST);
 
