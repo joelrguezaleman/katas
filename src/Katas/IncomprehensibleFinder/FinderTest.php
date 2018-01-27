@@ -2,13 +2,8 @@
 
 declare(strict_types = 1);
 
-namespace CodelyTV\FinderKataTest\Algorithm;
+namespace Katas\IncomprehensibleFinder;
 
-use Katas\IncomprehensibleFinder\ClosestAgeDifferenceFinder;
-use Katas\IncomprehensibleFinder\FurthestAgeDifferenceFinder;
-use Katas\IncomprehensibleFinder\Finder;
-use Katas\IncomprehensibleFinder\FindCriteria;
-use Katas\IncomprehensibleFinder\Person;
 use PHPUnit\Framework\TestCase;
 
 final class FinderTest extends TestCase
