@@ -6,22 +6,17 @@ namespace Katas\IncomprehensibleFinder;
 
 final class Finder
 {
-    /** @var AgeDifferenceFinder **/
-    private $closestAgeDifferenceFinder;
-
-    /** @var AgeDifferenceFinder **/
-    private $furthestAgeDifferenceFinder;
+    /** @var AgeDifferenceFinderFactory **/
+    private $ageDifferenceFinderFactory;
 
     /** @var Person[] */
     private $people;
 
     public function __construct(
         array $people,
-        AgeDifferenceFinder $closestAgeDifferenceFinder,
-        AgeDifferenceFinder $furthestAgeDifferenceFinder
+        AgeDifferenceFinderFactory $ageDifferenceFinderFactory
     ) {
-        $this->closestAgeDifferenceFinder = $closestAgeDifferenceFinder;
-        $this->furthestAgeDifferenceFinder = $furthestAgeDifferenceFinder;
+        $this->ageDifferenceFinderFactory = $ageDifferenceFinderFactory;
         $this->people = $people;
     }
 
@@ -34,11 +29,9 @@ final class Finder
             return new AgeDifferenceBetweenTwoPeople();
         }
 
-        if ($findCriteria === FindCriteria::CLOSEST) {
-            return $this->closestAgeDifferenceFinder->getAgeDifference($ageDifferences);
-        } else {
-            return $this->furthestAgeDifferenceFinder->getAgeDifference($ageDifferences);
-        }
+        $ageDifferenceFinder = $this->ageDifferenceFinderFactory->create($findCriteria);
+
+        return $ageDifferenceFinder->getAgeDifference($ageDifferences);
     }
 
     private function getAllAgeDifferencesBetweenAllPeople(): array

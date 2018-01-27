@@ -20,11 +20,8 @@ final class FinderTest extends TestCase
     /** @var Person */
     private $mike;
 
-    /** @var ClosestAgeDifferenceFinder **/
-    private $closestAgeDifferenceFinder;
-
-    /** @var FurthestAgeDifferenceFinder **/
-    private $furthestAgeDifferenceFinder;
+    /** @var AgeDifferenceFinderFactory **/
+    private $ageDifferenceFinderFactory;
 
     protected function setUp()
     {
@@ -44,8 +41,7 @@ final class FinderTest extends TestCase
         $this->mike->name      = "Mike";
         $this->mike->birthDate = new \DateTime("1979-01-01");
 
-        $this->closestAgeDifferenceFinder = new ClosestAgeDifferenceFinder();
-        $this->furthestAgeDifferenceFinder = new FurthestAgeDifferenceFinder();
+        $this->ageDifferenceFinderFactory = new AgeDifferenceFinderFactory();
     }
 
     /** @test */
@@ -54,8 +50,7 @@ final class FinderTest extends TestCase
         $list   = [];
         $finder = new Finder(
             $list,
-            $this->closestAgeDifferenceFinder,
-            $this->furthestAgeDifferenceFinder
+            $this->ageDifferenceFinderFactory
         );
 
         $result = $finder->find(FindCriteria::CLOSEST);
@@ -71,8 +66,7 @@ final class FinderTest extends TestCase
         $list[] = $this->sue;
         $finder = new Finder(
             $list,
-            $this->closestAgeDifferenceFinder,
-            $this->furthestAgeDifferenceFinder
+            $this->ageDifferenceFinderFactory
         );
 
         $result = $finder->find(FindCriteria::CLOSEST);
@@ -89,8 +83,7 @@ final class FinderTest extends TestCase
         $list[] = $this->greg;
         $finder = new Finder(
             $list,
-            $this->closestAgeDifferenceFinder,
-            $this->furthestAgeDifferenceFinder
+            $this->ageDifferenceFinderFactory
         );
 
         $result = $finder->find(FindCriteria::CLOSEST);
@@ -107,8 +100,7 @@ final class FinderTest extends TestCase
         $list[] = $this->greg;
         $finder = new Finder(
             $list,
-            $this->closestAgeDifferenceFinder,
-            $this->furthestAgeDifferenceFinder
+            $this->ageDifferenceFinderFactory
         );
 
         $result = $finder->find(FindCriteria::FURTHEST);
@@ -127,8 +119,7 @@ final class FinderTest extends TestCase
         $list[] = $this->greg;
         $finder = new Finder(
             $list,
-            $this->closestAgeDifferenceFinder,
-            $this->furthestAgeDifferenceFinder
+            $this->ageDifferenceFinderFactory
         );
 
         $result = $finder->find(FindCriteria::FURTHEST);
@@ -149,8 +140,7 @@ final class FinderTest extends TestCase
         $list[] = $this->greg;
         $finder = new Finder(
             $list,
-            $this->closestAgeDifferenceFinder,
-            $this->furthestAgeDifferenceFinder
+            $this->ageDifferenceFinderFactory
         );
 
         $result = $finder->find(FindCriteria::CLOSEST);
