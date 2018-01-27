@@ -35,7 +35,7 @@ final class Finder
 
         for ($i = 0; $i < count($this->people); $i++) {
             for ($j = $i + 1; $j < count($this->people); $j++) {
-                $ageDifferences[] = $this->buildAgeDifference(
+                $ageDifferences[] = new AgeDifferenceBetweenTwoPeople(
                     $this->people[$i],
                     $this->people[$j]
                 );
@@ -43,27 +43,6 @@ final class Finder
         }
 
         return $ageDifferences;
-    }
-
-    private function buildAgeDifference(
-        Person $person1,
-        Person $person2
-    ): AgeDifferenceBetweenTwoPeople {
-        $ageDifferenceBetweenTwoPeople = new AgeDifferenceBetweenTwoPeople();
-
-        if ($person1->birthDate < $person2->birthDate) {
-            $ageDifferenceBetweenTwoPeople->oldest = $person1;
-            $ageDifferenceBetweenTwoPeople->youngest = $person2;
-        } else {
-            $ageDifferenceBetweenTwoPeople->oldest = $person2;
-            $ageDifferenceBetweenTwoPeople->youngest = $person1;
-        }
-
-        $ageDifferenceBetweenTwoPeople->ageDifference =
-            $ageDifferenceBetweenTwoPeople->youngest->birthDate->getTimestamp()
-            - $ageDifferenceBetweenTwoPeople->oldest->birthDate->getTimestamp();
-
-        return $ageDifferenceBetweenTwoPeople;
     }
 
     private function getAgeDifferenceByFindCriteria(
